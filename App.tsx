@@ -13,14 +13,14 @@ import List from './src/classes/List';
 import Input from './src/classes/Input';
 import RefreshScroll from './src/classes/RefreshScroll';
 import SectionListComponent from './src/classes/SectionList';
-import Break from './src/classes/Break';
+// import Break from './src/classes/Break';
 
 function App(): JSX.Element {
   const Stack = createNativeStackNavigator();
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Break" component={Break} />
+        {/* <Stack.Screen name="Break" component={Break} /> */}
         <Stack.Screen name="LIST" component={List} />
         <Stack.Screen name="HOME" component={Practice1} />
         <Stack.Screen name="Input" component={Input} />
