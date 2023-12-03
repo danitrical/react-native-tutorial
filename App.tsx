@@ -5,47 +5,29 @@
  * @format
  */
 
-import React, {useState} from 'react';
-import {Button, FlatList, Image, SafeAreaView, Text, View} from 'react-native';
-import {styles} from './styles';
+import React from 'react';
+import Practice1 from './src/classes/Practice1';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import List from './src/classes/List';
+import Input from './src/classes/Input';
+import RefreshScroll from './src/classes/RefreshScroll';
+import SectionListComponent from './src/classes/SectionList';
+import Break from './src/classes/Break';
 
 function App(): JSX.Element {
-  let name = 'Hello World';
-  const [counter, setCounter] = useState<number>(0);
-
-  const increment = () => {
-    setCounter(() => counter + 1);
-  };
-
-  const data = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
-
-  // TODO: Add items in the data array dynamically
-  // and display it on screen.
-
+  const Stack = createNativeStackNavigator();
   return (
-    <SafeAreaView>
-      <View style={styles.main}>
-        <Text style={styles.title}>{name}</Text>
-        <Button title="Click me" onPress={increment} />
-        <Image
-          source={{
-            uri: 'https://reactnative.dev/docs/assets/p_cat2.png',
-          }}
-          style={styles.image}
-        />
-        <Text style={styles.counter}>I am clicked {counter} time</Text>
-        <FlatList
-          initialNumToRender={3}
-          data={data}
-          contentContainerStyle={styles.listStyles}
-          renderItem={({item}) => (
-            <Text style={styles.listText} key={item}>
-              {item}
-            </Text>
-          )}
-        />
-      </View>
-    </SafeAreaView>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Break" component={Break} />
+        <Stack.Screen name="LIST" component={List} />
+        <Stack.Screen name="HOME" component={Practice1} />
+        <Stack.Screen name="Input" component={Input} />
+        <Stack.Screen name="Refresh" component={RefreshScroll} />
+        <Stack.Screen name="SectionList" component={SectionListComponent} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
